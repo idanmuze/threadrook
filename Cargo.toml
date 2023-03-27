@@ -1,15 +1,15 @@
 [package]
 name = "threadrook"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 publish = false
 
 [dependencies]
-shuttle-runtime = "0.12.0"
+shuttle-runtime = "0.13.0"
 anyhow = "1.0.70"
 poise = "0.5.2"
-shuttle-poise = "0.12.0"
-shuttle-secrets = "0.12.0"
+shuttle-poise = "0.13.0"
+shuttle-secrets = "0.13.0"
 tokio = "1.26.0"
 tracing = "0.1.37"
 rand = "0.8.5"
