@@ -5,10 +5,7 @@ use pleco::{Board, Player};
 use poise::serenity_prelude::{CacheHttp, GuildChannel, Member, Message, UserId};
 use tokio::{task::JoinHandle, time::interval};
 
-use crate::{
-    get_member_from_chessplayer, get_opposite_colour, Context, DiscordCommand,
-    DiscordCommunication, Error,
-};
+use crate::{Context, DiscordCommand, DiscordCommunication, Error};
 
 #[derive(Debug, Clone, Copy, buildstructor::Builder)]
 pub struct ChessMatch {
@@ -465,5 +462,30 @@ impl ChessMatch {
             Player::White => self.player_time.white,
             Player::Black => self.player_time.black,
         }
+    }
+}
+
+pub fn get_opposite_colour(colour: Player) -> Player {
+    if colour == Player::White {
+        Player::Black
+    } else {
+        Player::White
+    }
+}
+
+fn get_member_from_chessplayer(
+    query_chessplayer: ChessPlayer,
+    player_1_member: &Member,
+    player_2_member: &Member,
+) -> Result<Member, Error> {
+    if query_chessplayer.user_id.unwrap() == player_1_member.user.id {
+        Ok(player_1_member.clone())
+    } else if query_chessplayer.user_id.unwrap() == player_2_member.user.id {
+        Ok(player_2_member.clone())
+    } else {
+        Err(
+            anyhow!("Chessplayer user id did not match either of the two members in this match.")
+                .into(),
+        )
     }
 }

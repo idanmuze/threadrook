@@ -1,5 +1,5 @@
 use anyhow::Context;
-use poise::serenity_prelude::{self as serenity};
+use poise::serenity_prelude as serenity;
 use shuttle_poise::ShuttlePoise;
 use shuttle_secrets::SecretStore;
 use tokio::sync::broadcast;
@@ -12,13 +12,11 @@ use threadrook::{
 #[shuttle_runtime::main]
 async fn poise(#[shuttle_secrets::Secrets] secret_store: SecretStore) -> ShuttlePoise<Data, Error> {
     // broadcast channel that allows both external Discord command invocations and internal, spawned tasks to communicate with chess matches
-
     // Chess matches actually only use one broadcast receiver at a time.
     // The reason why an mpsc wasn't used was because there is no way of utilizing a receiver without it being mutable. Data references are immutable.
     let (tx, rx) = broadcast::channel(10000);
 
     // Get the discord token set in `Secrets.toml`.
-    // Make sure to create one before running.
     let discord_token = secret_store
         .get("DISCORD_TOKEN")
         .context("'DISCORD_TOKEN' was not found")?;

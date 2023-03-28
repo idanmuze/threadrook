@@ -6,8 +6,10 @@ use poise::serenity_prelude::{CacheHttp, ChannelType::PublicThread, CreateThread
 use tokio::{sync::mpsc, time::timeout};
 
 use crate::{
-    chess_match::{ChessMatch, ChessPlayer, GameState, PlayerSlot, PlayerTime},
-    get_opposite_colour, Context, DiscordCommand, DiscordCommunication, Error,
+    chess_match::{
+        get_opposite_colour, ChessMatch, ChessPlayer, GameState, PlayerSlot, PlayerTime,
+    },
+    Context, DiscordCommand, DiscordCommunication, Error,
 };
 
 /// Create a chess match in a public thread. Opponents can join using /join_match.

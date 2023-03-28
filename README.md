@@ -24,6 +24,8 @@ ThreadRook is a small Discord bot that allows you to play chess on any Discord s
 - Cross-server matches
 - A much prettier chess board
 
+## [Add ThreadRook to your server!](https://discord.com/api/oauth2/authorize?client_id=1082113166005256272&permissions=397284682752&scope=bot%20applications.commands)
+
 ## [A quick guide on move notation.](./move_guide.md)
 
 PRs welcome!
