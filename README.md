@@ -10,17 +10,16 @@ ThreadRook is a small Discord bot that allows you to play chess on any Discord s
 
 ## Features currently include
 
-- Chess in a self-managing public thread. No bloat, just a stringified chess board, each players time, and all the legal moves in the current position.
+- Chess in a self-managing public thread. No bloat, just a stringified chess board, each player's time, and all the legal moves in the current position.
 - Slash commands: Every interaction with the chess match is done through slash commands. Moves are notated as strings so you can take your turn from any channel in the server.
-- Open source: See for yourself how it works!
 
-## ThreadRook is still barebones. Here is the roadmap for `v0.1.1` and beyond
+## ThreadRook is still barebones. Here is the roadmap for `v0.1.2` and beyond
 
 - Replace system communication between `chess_match`s (currently message passing) with an easy to understand database.
 - Add a robust testing suite.
-- Allow user's to choose between Rapid, Bullet, and Classical chess when creating a match.
-- Allow user's to create private, invite-only matches.
-- Allow user's to have rematches without creating a new match.
+- Allow users to choose between Rapid, Bullet, and Classical chess when creating a match.
+- Allow users to create private, invite-only matches.
+- Allow users to have rematches without creating a new match.
 - Optional Chess.com integration (e.g. displaying elo)
 - Cross-server matches
 - A much prettier chess board
